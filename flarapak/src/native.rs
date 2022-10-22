@@ -58,12 +58,22 @@ mod test {
 
 impl prelude::Backend<App, Repo> for Backend {
     fn get_repositories() -> Vec<Repo> {
+        let mut repositories = Vec::new();
         for folder in Self::SCAN_FOLDERS {
             let path = PathBuf::from(folder).join("repo").join("config");
 
-            
+            let mut ini = Ini::new();
+            ini.load(path).unwrap();
+
+            let remotes = deserialize(ini);
+            repositories.extend(remotes);
         }
 
-        todo!()
+        repositories
+            .iter()
+            .map(|remote| Repo {
+                remote: remote.clone(),
+            })
+            .collect()
     }
 }
