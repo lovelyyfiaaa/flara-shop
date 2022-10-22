@@ -3,6 +3,7 @@
 ///
 pub trait Repository<A: App> {
     fn get_apps() -> Vec<A>;
+    fn name(&self) -> Option<String>;
 }
 
 pub trait Backend<A: App, R: Repository<A>> {
@@ -11,3 +12,4 @@ pub trait Backend<A: App, R: Repository<A>> {
 
 /// A trait that represents all kinds of Flatpak Application!
 pub trait App {}
+
