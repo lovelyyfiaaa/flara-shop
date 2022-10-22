@@ -1,7 +1,7 @@
 use configparser::ini::Ini;
 use serde::Serialize;
 use serde_derive::Deserialize;
-#[derive(Deserialize, Serialize, Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Deserialize, Serialize, Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Remote {
     pub url: String,
     pub xa: Option<Xa>,
@@ -9,7 +9,7 @@ pub struct Remote {
     pub gpg_verify_summary: Option<bool>,
 }
 
-#[derive(Deserialize, Serialize, Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Deserialize, Clone, Serialize, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Xa {
     pub prio: Option<usize>,
     pub noenumerate: Option<bool>,
@@ -91,7 +91,5 @@ mod test {
                 gpg_verify_summary: Some(true),
             }]
         );
-
-  
     }
 }
