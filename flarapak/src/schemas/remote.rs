@@ -13,7 +13,7 @@ pub struct Remote {
 pub struct Xa {
     pub prio: Option<usize>,
     pub noenumerate: Option<bool>,
-    pub main_ref: Option<bool>,
+    pub main_ref: Option<String>,
     pub pinned: Option<String>,
     pub title: Option<String>,
     pub description: Option<String>,
@@ -36,7 +36,7 @@ pub fn deserialize(ini: Ini) -> Vec<Remote> {
                         .unwrap()
                         .map(|int| int as usize),
                     noenumerate: ini.getbool(&section, "xa.noenumerate").unwrap(),
-                    main_ref: ini.getbool(&section, "xa.main-ref").unwrap(),
+                    main_ref: ini.get(&section, "xa.main-ref"),
                     pinned: ini.get(&section, "xa.pinned"),
                     description: ini.get(&section, "xa.description"),
                     title_is_set: ini.getbool(&section, "xa.title-is-set").unwrap(),
