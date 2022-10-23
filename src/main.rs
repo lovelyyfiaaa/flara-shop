@@ -1,6 +1,6 @@
 use app::App;
 use flarapak::auto::{Backend, Repo};
-use flarapak::prelude::Backend as B;
+use flarapak::prelude::{Backend as B, Repository};
 use iced::widget::qr_code::{self, QRCode};
 use iced::widget::{column, container, row, scrollable, text, text_input};
 use iced::{Alignment, Color, Element, Length, Sandbox, Settings};
@@ -71,7 +71,13 @@ impl Sandbox for FlauraShop {
                 row(self
                     .repositories
                     .iter()
-                    .map(|app| column(vec![text(&app.name()).into()]).into())
+                    .map(|app| {
+                        column(vec![text(
+                            &app.name().unwrap_or_else(|| "No name".to_string()),
+                        )
+                        .into()])
+                        .into()
+                    })
                     .collect())
                 .into(),
             ])
