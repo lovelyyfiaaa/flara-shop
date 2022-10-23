@@ -11,6 +11,7 @@ serde_derive = "1.0.146"
 serde = { version = "1.0.146", features = ["serde_derive"]} # Quick-xml depends on serde_derive
 quick-xml = { version = "0.25.0", features = ["serialize"] }
 configparser = "3.0.2"
+dirs = "4.0.0"
 [features]
 default = ["native"]
 native = []

@@ -59,14 +59,22 @@ mod test {
 impl prelude::Backend<App, Repo> for Backend {
     fn get_repositories() -> Vec<Repo> {
         let mut repositories = Vec::new();
-        for folder in Self::SCAN_FOLDERS {
-            let path = PathBuf::from(folder).join("repo").join("config");
+        for str_folder in Self::SCAN_FOLDERS {
+            let folder;
+            if str_folder.starts_with("~/") {
+                folder = dirs::home_dir()
+                    .unwrap()
+                    .join(str_folder.strip_prefix("~/").unwrap())
+            } else {
+                folder = PathBuf::from(str_folder)
+            }
+            if let Ok(path) = folder.join("repo").join("config").canonicalize() {
+                let mut ini = Ini::new();
+                ini.load(path).unwrap();
 
-            let mut ini = Ini::new();
-            ini.load(path).unwrap();
-
-            let remotes = deserialize(ini);
-            repositories.extend(remotes);
+                let remotes = deserialize(ini);
+                repositories.extend(remotes);
+            };
         }
 
         repositories
