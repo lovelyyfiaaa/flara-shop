@@ -15,6 +15,8 @@ pub struct App {
     pub urls: Vec<Url>,
     #[serde(rename = "$unflatten=screenshots")]
     pub screenshots: Screenshots,
+    #[serde(rename = "$unflatten=description")]
+    pub description: Option<String>,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
