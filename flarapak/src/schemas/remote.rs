@@ -7,6 +7,7 @@ pub struct Remote {
     pub xa: Option<Xa>,
     pub gpg_verify: Option<bool>,
     pub gpg_verify_summary: Option<bool>,
+    pub name: String,
 }
 
 #[derive(Deserialize, Clone, Serialize, Debug, PartialEq, Eq, Ord, PartialOrd)]
@@ -26,7 +27,7 @@ pub struct Xa {
 pub fn deserialize(ini: Ini) -> Vec<Remote> {
     let mut remotes = Vec::new();
     for section in ini.sections() {
-        if section != "core" {
+        if section.starts_with("remote ") {
             remotes.push(Remote {
                 url: ini.get(&section, "url").unwrap(),
                 xa: Some(Xa {
@@ -47,6 +48,7 @@ pub fn deserialize(ini: Ini) -> Vec<Remote> {
                 }),
                 gpg_verify: ini.getbool(&section, "gpg-verify").unwrap(),
                 gpg_verify_summary: ini.getbool(&section, "gpg-verify-summary").unwrap(),
+                name: section.strip_prefix("remote ").unwrap().to_string(),
             })
         }
     }
@@ -89,6 +91,7 @@ mod test {
                 }),
                 gpg_verify: Some(true),
                 gpg_verify_summary: Some(true),
+                name: "flathub".to_string()
             }]
         );
     }
