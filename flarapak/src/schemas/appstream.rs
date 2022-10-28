@@ -13,8 +13,28 @@ pub struct App {
     pub developer_name: Option<String>,
     #[serde(default, rename = "$unflatten=url")]
     pub urls: Vec<Url>,
+    #[serde(rename = "$unflatten=screenshots")]
+    pub screenshots: Screenshots,
 }
 
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct Screenshots {
+    #[serde(default, rename = "$unflatten=screenshot")]
+    pub screenshots: Vec<Screenshot>,
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct Screenshot {
+    #[serde(default, rename = "$unflatten=image")]
+    pub images: Vec<Image>,
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct Image {
+    pub r#type: String,
+    #[serde(default, rename = "$value")]
+    pub url: String,
+}
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Url {
     pub r#type: String,
