@@ -87,7 +87,9 @@ impl prelude::App for NativeApp {
         self.app.developer_name.as_ref()
     }
 
-
+    fn description(&self) -> Option<&Self::StringRet> {
+        self.app.description.as_ref()
+    }
 
     fn images(&self) -> Vec<&Self::StringRet> {
         let mut images = Vec::new();

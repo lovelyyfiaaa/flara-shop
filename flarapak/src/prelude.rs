@@ -33,7 +33,7 @@ where
     fn id(&self) -> &Self::StringRet;
     fn author(&self) -> Option<&Self::StringRet>;
 
-S
+    fn description(&self) -> Option<&Self::StringRet>;
 
     fn images(&self) -> Vec<&Self::StringRet>;
 
