@@ -4,9 +4,7 @@ use flarapak::prelude::{Backend as B, Repository};
 use iced::widget::qr_code::{self, QRCode};
 use iced::widget::{column, container, row, scrollable, text, text_input};
 use iced::{Alignment, Color, Element, Length, Sandbox, Settings};
-mod app;
-mod flathub;
-mod remote;
+
 pub fn main() -> iced::Result {
     FlauraShop::run(Settings::default())
 }
