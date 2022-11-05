@@ -60,7 +60,6 @@ impl<'a> prelude::Repository<App> for Repository {
                 Err(err) => panic!("{:?} failed: {err:#?}", &arch),
             };
 
-
             collection
                 .components
                 .iter()
@@ -108,7 +107,7 @@ impl prelude::App for NativeApp {
         flatpak.status()
     }
     fn author(&self) -> Option<&Vec<Self::StringRet>> {
-        self.app.developer_name.as_ref()
+        Some(self.app.developer_name.as_ref())
     }
 
     fn description(&self) -> Option<&Self::StringRet> {
