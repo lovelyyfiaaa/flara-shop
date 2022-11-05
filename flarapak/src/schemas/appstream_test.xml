@@ -1,45 +1,108 @@
-<components  version="0.8" origin="flarapak-test">
+<?xml version="1.0" encoding="UTF-8"?>
+<components version="0.8" origin="flarapak-test">
   <component type="desktop">
-   <id>com.inochi2d.inochi-creator</id>
-   <name>Inochi Creator</name>
-   <summary>Tool to create and edit Inochi2D puppets.</summary>
-   <developer_name>Luna Nielsen</developer_name>
-   <description><p>Inochi2D is a framework for realtime 2D puppet animation which can be used for VTubing, game development and digital animation.</p><p>Inochi Creator is a tool that lets you create and edit Inochi2D puppets.</p></description>
-   <icon type="cached" height="64" width="64">com.inochi2d.inochi-creator.png</icon>
-   <icon type="cached" height="128" width="128">com.inochi2d.inochi-creator.png</icon>
-   <categories>
-     <category>Graphics</category>
-     <category>Utility</category>
-   </categories>
-   <kudos>
-     <kudo>HiDpiIcon</kudo>
-   </kudos>
-   <project_license>BSD-2-Clause</project_license>
-   <url type="bugtracker">https://github.com/Inochi2D/inochi-creator/issues</url>
-   <url type="contribute">https://github.com/Inochi2D/inochi-creator</url>
-   <url type="donation">https://inochi2d.com/#donate</url>
-   <url type="help">https://discord.com/invite/abnxwN6r9v</url>
-   <url type="homepage">https://lunafoxgirlvt.itch.io/inochi-creator</url>
-   <url type="vcs-browser">https://github.com/Inochi2D/inochi-creator</url>
-   <screenshots>
-     <screenshot type="default">
-       <image type="source">https://user-images.githubusercontent.com/7032834/194462402-74c4a3e0-50ca-4b50-8e8d-164d97371f5a.png</image>
-       <image type="thumbnail" height="351" width="624">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/624x351/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
-       <image type="thumbnail" height="702" width="1248">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/1248x702/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
-       <image type="thumbnail" height="63" width="112">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/112x63/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
-       <image type="thumbnail" height="126" width="224">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/224x126/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
-       <image type="thumbnail" height="423" width="752">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/752x423/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
-       <image type="thumbnail" height="846" width="1504">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/1504x846/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
-     </screenshot>
-   </screenshots>
-   <content_rating type="oars-1.1"/>
-   <releases>
-     <release type="stable" timestamp="1665360000" version="v0.7.4.1">
-       <url type="unknown">https://github.com/Inochi2D/inochi-creator/releases/tag/v0.7.4.1</url>
-       <description><p>Changelog</p><ul><li>Added support for xdg-desktop-portal on Linux</li><li>Added link buttons</li><li>Added welcome screen</li><li>Added banner illustration by 七乃ななせ</li><li>Added shadowed text widget</li><li>Added a new Inochi Creator icon</li><li>Added new fancy texture slot</li><li>Added support for editing post processing textures</li><li>Added ability to convert albedo textures to emmission textures</li><li>Added right click menu in viewport for part selection</li><li>Added model export dialog</li><li>Added new Camera node</li><li>Added image export</li><li>Added border scroll to nodes list when dragging nodes around</li><li>Added parameter groups with coloration support</li><li>Added internal support for custom toolbars</li><li>Added experimental timeline in InExperimental</li><li>Added new issue templates for bug reporting and feature requests</li><li>Added links in the help menu for bug reporting and feature requests</li><li>Updated Japanese translation</li><li>Updated Chinese translations</li><li>Updated Danish translation</li><li>Updated italian translation</li><li>Updated shortcut handling</li><li>Updated UI scaling implementation (still work in progress)</li><li>Updated UI settings window with a new design</li><li>Updated parameter axes with a new design</li><li>Updated look of categories in the inspector</li><li>Updated look and functionality of the viewport</li><li>Updated the look and functionality of mesh editing</li><li>Updated light theme</li><li>Changed packaging format on Linux to Flatpak</li><li>Changed how parameters are displayed when editing</li><li>Changed minimum window size to 960x720</li><li>Changed Gizmo settings to be in a submenu</li><li>Fixed multiple textures conflicting on PSD merge</li><li>Fixed rendering of armed parameters</li><li>Fixed various imgui assert crashes</li><li>Fixed path corruption in previous projects list</li><li>Fixed physics being enabled when editing deformation</li><li>Fixed null terminator in string input</li><li>Fixed undo system for parameter editing</li><li>Fixed undo system for moving node around</li><li>Fixed language selection not showing language name in their native language</li><li>Fixed ordering of language selection</li><li>Fixed parameters not getting disarmed on project load</li><li>Fixed Wayland detection code</li><li>Fixed accuracy camera auto focus functionality</li><li>Fixed some windows not running their quit functionality when closed</li><li>Fixed display of gravity units in Puppet inspector</li><li>Fixed vertex offset during merge being applied wrong</li><li>Fixed center node/Viewport accidentally being a dockable node</li><li>Fixed icon on Linux with X11 being wrong</li><li>Removed LTO compilation</li><li>Removed Test Mode temporarily</li></ul></description>
-     </release>
-   </releases>
-   <launchable type="desktop-id">com.inochi2d.inochi-creator.desktop</launchable>
-   <bundle type="flatpak" runtime="org.freedesktop.Platform/x86_64/21.08" sdk="org.freedesktop.Sdk/x86_64/21.08">app/com.inochi2d.inochi-creator/x86_64/stable</bundle>
- </component>
+    <id>com.inochi2d.inochi-creator</id>
+    <name>Inochi Creator</name>
+    <summary>Tool to create and edit Inochi2D puppets.</summary>
+    <developer_name>Luna Nielsen</developer_name>
+    <description>
+      <p>Inochi2D is a framework for realtime 2D puppet animation which can be used for VTubing, game development and digital animation.</p>
+      <p>Inochi Creator is a tool that lets you create and edit Inochi2D puppets.</p>
+    </description>
+    <icon type="cached" height="64" width="64">com.inochi2d.inochi-creator.png</icon>
+    <icon type="cached" height="128" width="128">com.inochi2d.inochi-creator.png</icon>
+    <categories>
+      <category>Graphics</category>
+      <category>Utility</category>
+    </categories>
+    <kudos>
+      <kudo>HiDpiIcon</kudo>
+    </kudos>
+    <project_license>BSD-2-Clause</project_license>
+    <url type="bugtracker">https://github.com/Inochi2D/inochi-creator/issues</url>
+    <url type="contribute">https://github.com/Inochi2D/inochi-creator</url>
+    <url type="donation">https://inochi2d.com/#donate</url>
+    <url type="help">https://discord.com/invite/abnxwN6r9v</url>
+    <url type="homepage">https://lunafoxgirlvt.itch.io/inochi-creator</url>
+    <url type="vcs-browser">https://github.com/Inochi2D/inochi-creator</url>
+    <screenshots>
+      <screenshot type="default">
+        <image type="source">https://user-images.githubusercontent.com/7032834/194462402-74c4a3e0-50ca-4b50-8e8d-164d97371f5a.png</image>
+        <image type="thumbnail" height="351" width="624">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/624x351/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
+        <image type="thumbnail" height="702" width="1248">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/1248x702/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
+        <image type="thumbnail" height="63" width="112">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/112x63/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
+        <image type="thumbnail" height="126" width="224">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/224x126/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
+        <image type="thumbnail" height="423" width="752">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/752x423/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
+        <image type="thumbnail" height="846" width="1504">https://dl.flathub.org/repo/screenshots/com.inochi2d.inochi-creator-stable/1504x846/com.inochi2d.inochi-creator-9d1a0bb40d21203453edf0491e0574a3.png</image>
+      </screenshot>
+    </screenshots>
+    <content_rating type="oars-1.1" />
+    <releases>
+      <release type="stable" timestamp="1665360000" version="v0.7.4.1">
+        <url type="unknown">https://github.com/Inochi2D/inochi-creator/releases/tag/v0.7.4.1</url>
+        <description>
+          <p>Changelog</p>
+          <ul>
+            <li>Added support for xdg-desktop-portal on Linux</li>
+            <li>Added link buttons</li>
+            <li>Added welcome screen</li>
+            <li>Added banner illustration by 七乃ななせ</li>
+            <li>Added shadowed text widget</li>
+            <li>Added a new Inochi Creator icon</li>
+            <li>Added new fancy texture slot</li>
+            <li>Added support for editing post processing textures</li>
+            <li>Added ability to convert albedo textures to emmission textures</li>
+            <li>Added right click menu in viewport for part selection</li>
+            <li>Added model export dialog</li>
+            <li>Added new Camera node</li>
+            <li>Added image export</li>
+            <li>Added border scroll to nodes list when dragging nodes around</li>
+            <li>Added parameter groups with coloration support</li>
+            <li>Added internal support for custom toolbars</li>
+            <li>Added experimental timeline in InExperimental</li>
+            <li>Added new issue templates for bug reporting and feature requests</li>
+            <li>Added links in the help menu for bug reporting and feature requests</li>
+            <li>Updated Japanese translation</li>
+            <li>Updated Chinese translations</li>
+            <li>Updated Danish translation</li>
+            <li>Updated italian translation</li>
+            <li>Updated shortcut handling</li>
+            <li>Updated UI scaling implementation (still work in progress)</li>
+            <li>Updated UI settings window with a new design</li>
+            <li>Updated parameter axes with a new design</li>
+            <li>Updated look of categories in the inspector</li>
+            <li>Updated look and functionality of the viewport</li>
+            <li>Updated the look and functionality of mesh editing</li>
+            <li>Updated light theme</li>
+            <li>Changed packaging format on Linux to Flatpak</li>
+            <li>Changed how parameters are displayed when editing</li>
+            <li>Changed minimum window size to 960x720</li>
+            <li>Changed Gizmo settings to be in a submenu</li>
+            <li>Fixed multiple textures conflicting on PSD merge</li>
+            <li>Fixed rendering of armed parameters</li>
+            <li>Fixed various imgui assert crashes</li>
+            <li>Fixed path corruption in previous projects list</li>
+            <li>Fixed physics being enabled when editing deformation</li>
+            <li>Fixed null terminator in string input</li>
+            <li>Fixed undo system for parameter editing</li>
+            <li>Fixed undo system for moving node around</li>
+            <li>Fixed language selection not showing language name in their native language</li>
+            <li>Fixed ordering of language selection</li>
+            <li>Fixed parameters not getting disarmed on project load</li>
+            <li>Fixed Wayland detection code</li>
+            <li>Fixed accuracy camera auto focus functionality</li>
+            <li>Fixed some windows not running their quit functionality when closed</li>
+            <li>Fixed display of gravity units in Puppet inspector</li>
+            <li>Fixed vertex offset during merge being applied wrong</li>
+            <li>Fixed center node/Viewport accidentally being a dockable node</li>
+            <li>Fixed icon on Linux with X11 being wrong</li>
+            <li>Removed LTO compilation</li>
+            <li>Removed Test Mode temporarily</li>
+          </ul>
+        </description>
+      </release>
+    </releases>
+    <launchable type="desktop-id">com.inochi2d.inochi-creator.desktop</launchable>
+    <bundle type="flatpak" runtime="org.freedesktop.Platform/x86_64/21.08" sdk="org.freedesktop.Sdk/x86_64/21.08">app/com.inochi2d.inochi-creator/x86_64/stable</bundle>
+  </component>
 </components>
