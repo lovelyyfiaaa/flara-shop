@@ -12,7 +12,7 @@ use std::path::PathBuf;
 
 use std::process::{Command, ExitStatus};
 
-use crate::schemas::appstream::Components;
+use crate::schemas::appstream::{parse_from_str, Components};
 use crate::schemas::remote::{deserialize, Remote};
 use crate::{prelude, schemas};
 pub use NativeBackend as Backend;
@@ -73,6 +73,9 @@ impl<'a> prelude::Repository<App> for Repository {
         }
     }
 
+    fn id(&self) -> &Self::StringRet {
+        &self.remote.name
+    }
     type StringRet = String;
 }
 
@@ -100,12 +103,12 @@ impl prelude::App for NativeApp {
 
         flatpak.status()
     }
-    fn author(&self) -> Option<&Self::StringRet> {
+    fn author(&self) -> Option<&Vec<Self::StringRet>> {
         self.app.developer_name.as_ref()
     }
 
     fn description(&self) -> Option<&Self::StringRet> {
-        self.app.description.as_ref()
+        None
     }
 
     fn images(&self) -> Vec<&Self::StringRet> {
@@ -148,6 +151,7 @@ mod test {
                 remote,
                 path: PathBuf::new(),
             };
+
             assert_eq!(repo.name(), Some(&"Fedora Flathub Selection".to_string()));
         }
     }
@@ -201,7 +205,7 @@ impl prelude::Backend<App, Repo> for Backend {
         repositories
     }
 
-    fn get_apps(repos: &Vec<Repo>) -> Vec<App> {
+    fn get_apps(repos: Vec<&Repo>) -> Vec<App> {
         let mut apps = Vec::new();
 
         for repo in repos {

@@ -8,11 +8,12 @@ where
     type StringRet;
     fn get_apps(&self) -> Vec<A>;
     fn name(&self) -> Option<&Self::StringRet>;
+    fn id(&self) -> &Self::StringRet;
 }
 
 pub trait Backend<A: App, R: Repository<A>> {
     fn get_repositories() -> Vec<R>;
-    fn get_apps(repos: &Vec<R>) -> Vec<A>;
+    fn get_apps(repos: Vec<&R>) -> Vec<A>;
 }
 
 use std::{
@@ -31,7 +32,7 @@ where
     type StringRet;
 
     fn id(&self) -> &Self::StringRet;
-    fn author(&self) -> Option<&Self::StringRet>;
+    fn author(&self) -> Option<&Vec<Self::StringRet>>;
 
     fn description(&self) -> Option<&Self::StringRet>;
 
