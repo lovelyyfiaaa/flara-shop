@@ -133,9 +133,11 @@ mod test {
 
     use configparser::ini::Ini;
 
-    use crate::native::Repo;
+    use super::{NativeApp, NativeBackend};
+    use crate::native::NativeRepository;
     use crate::prelude::*;
     use crate::schemas::remote::deserialize;
+    use crate::{native::Repo, schemas::appstream};
     #[test]
     pub fn test_repo() {
         let mut ini = Ini::new();
@@ -148,6 +150,27 @@ mod test {
             };
             assert_eq!(repo.name(), Some(&"Fedora Flathub Selection".to_string()));
         }
+    }
+
+    #[test]
+    pub fn fetch_all() {
+        let apps: Vec<NativeApp> =
+            NativeBackend::get_apps(NativeBackend::get_repositories().iter().collect());
+
+        assert!(apps.len() != 0)
+    }
+
+    #[test]
+    pub fn test_flathub() {
+        let all_repos = NativeBackend::get_repositories();
+        let repo: Vec<&NativeRepository> = all_repos
+            .iter()
+            .filter(|repo| repo.id() == "flathub")
+            .collect();
+
+        let apps = NativeBackend::get_apps(repo);
+
+        assert!(apps.len() != 0)
     }
 }
 
