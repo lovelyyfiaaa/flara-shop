@@ -31,16 +31,33 @@ impl<'a> prelude::Repository<App> for Repository {
         if !path.exists() {
             Vec::new()
         } else {
-            let arch = path
-                .join(std::env::consts::ARCH)
-                .join("active")
-                .join("appstream.xml");
+            let arch_folder = path.join(std::env::consts::ARCH).join("active");
+
+            let arch = arch_folder.join("appstream.xml");
+            let arch_gz = arch_folder.join("appstream.xml.gz");
             let mut xml = String::new();
+            if arch.exists() {
+                match File::open(&arch) {
+                    Ok(mut file) => file.read_to_string(&mut xml).unwrap(),
+                    Err(err) => panic!("{:?} failed: {err:#?}", &arch),
+                };
+            } else if arch_gz.exists() {
+                let mut decoder = flate2::read::GzDecoder::new(File::open(arch_gz).unwrap());
 
-            File::open(arch).unwrap().read_to_string(&mut xml).unwrap();
-            let components: Components = quick_xml::de::from_str(&xml).unwrap();
+                decoder.read_to_string(&mut xml).unwrap();
+            }
 
-            components
+            if xml == "" {
+                return Vec::new();
+            }
+
+            let collection = match parse_from_str(&xml) {
+                Ok(c) => c,
+                Err(err) => panic!("{:?} failed: {err:#?}", &arch),
+            };
+
+
+            collection
                 .components
                 .iter()
                 .map(|app| NativeApp { app: app.clone() })

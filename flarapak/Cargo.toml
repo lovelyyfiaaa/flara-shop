@@ -12,6 +12,7 @@ serde = { version = "1.0.146", features = ["serde_derive"]} # Quick-xml depends 
 quick-xml = { version = "0.25.0", features = ["serialize"] }
 configparser = "3.0.2"
 dirs = "4.0.0"
+flate2 = "1.0.24"
 async-trait = "0.1.58"
 [features]
 default = ["native"]

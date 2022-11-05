@@ -577,6 +577,7 @@ name = "flarapak"
 version = "0.1.0"
 dependencies = [
  "configparser",
+ "flate2",
  "dirs",
  "quick-xml",
  "serde",
