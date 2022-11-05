@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Fiana Fortressia
+//
+// SPDX-License-Identifier: MIT OR Apache-2.0
+
 ///
 ///  This is a template implementation for the Flarapak traits!!
 /// 

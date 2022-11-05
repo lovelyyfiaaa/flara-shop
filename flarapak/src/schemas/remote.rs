@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Fiana Fortressia
+//
+// SPDX-License-Identifier: MIT OR Apache-2.0
+
 use configparser::ini::Ini;
 use serde::Serialize;
 use serde_derive::Deserialize;

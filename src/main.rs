@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Fiana Fortressia
+//
+// SPDX-License-Identifier: MIT OR Apache-2.0
+
 use flarapak::auto::{Backend, Repo};
 use flarapak::native::NativeRepository;
 use flarapak::prelude::{App as A, Backend as B, Repository};
