@@ -48,7 +48,12 @@ pub fn deserialize(ini: Ini) -> Vec<Remote> {
                 }),
                 gpg_verify: ini.getbool(&section, "gpg-verify").unwrap(),
                 gpg_verify_summary: ini.getbool(&section, "gpg-verify-summary").unwrap(),
-                name: section.strip_prefix("remote ").unwrap().to_string(),
+                name: section
+                    .strip_prefix("remote \"")
+                    .unwrap()
+                    .strip_suffix("\"")
+                    .unwrap()
+                    .to_string(),
             })
         }
     }
